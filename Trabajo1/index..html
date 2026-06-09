@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Formulario: Licorera La Cancha V_01 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="author" content="Nombre del Autor(ES)">
+    <meta name="description" content="Licorera La Cancha, la mejor excusa para compartir con tus amigos">
+
+
+    <title>Licorería La Cancha</title>
+</head>
+
+<body>
+
+    <h2>LICORERA LA CANCHA</h2>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <!-- Debe incluir un enlace a una segunda página web que muestre un about -->
+            <li><a href="about.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
+    <form name="formulario_licorera" action="procesar_formulario_licorera.js">
+
+
+        <h3>CLIENTE</h3>
+
+
+        <p>
+            <label for="cliente_nombre">1: Nombre:</label>
+            <input type="text" id="cliente_nombre" placeholder="Escriba acá su nombre completo" size="25" required>
+        </p>
+
+
+        <p>
+            <label for="cliente_cedula">2: Cédula:</label>
+            <input type="input" id="cliente_cedula" name="ClienteCedula" value="41022946" min="1000000" max="99999999"
+                required>
+        </p>
+
+
+        <p>
+            <label for="cliente_telefono">3: Teléfono:</label>
+            <input type="number" id="cliente_telefono" name="ClienteTelefono" value="3018329128"
+                placeholder="Ej. 3001234567" size="15" required>
+        </p>
+
+
+        <p>
+            <label for="cliente_email">4: e.mail:</label>
+            <input type="email" id="cliente_email" name="ClienteEmail" value="Pepin@gmail.com"
+                placeholder="Ej. nombre@correo.com" size="25" required>
+        </p>
+
+
+        <p>
+            <label for="cliente_login">5: LOGIN:</label>
+            <input type="password" id="cliente_login" name="ClienteLogin" placeholder="Mínimo 8 caracteres" size="20"
+                required>
+        </p>
+
+
+        <p>
+            <label for="cliente_edad">6: Edad:</label>
+            <input type="number" id="cliente_edad" name="ClienteEdad" value="28" placeholder="Ej. 25" min="18" max="99"
+                size="5" required>
+        </p>
+
+
+        <p>
+            <label for="cliente_direccion">7: Dirección:</label>
+            <textarea name="ClienteDireccion" id="cliente_direccion" cols="30" rows="3">Calle 50F #21-99</textarea>
+        </p>
+
+
+        <h3>PEDIDO</h3>
+
+
+        <p>
+            <label for="pedido_nombre">8: Nombre:</label>
+            <input type="text" id="pedido_nombre" name="PedidoNombre" value="VINO"
+                placeholder="Ej. VINO, AGUARDIENTE..." size="20" required>
+        </p>
+
+
+        <p>
+            <label for="pedido_id">9: ID:</label>
+            <input type="number" id="pedido_id" name="PedidoId" value="14" min="1" max="100">
+        </p>
+
+
+        <p>
+            <label for="pedido_volumen_alcohol">10: Volumen de Alcohol:</label>
+            <input type="number" id="pedido_volumen_alcohol" name="PedidoVolumenAlcohol" value="29" placeholder="Ej. 29"
+                min="0" max="100" size="5" required>
+        </p>
+
+
+        <p>
+            <label for="pedido_precio">11: Precio:</label>
+            <input type="number" id="pedido_precio" name="PedidoPrecio" value="52000" min="1000" max="500000">
+        </p>
+
+
+        <p>
+            <label>12: Tamaño:</label><br>
+            <input type="radio" id="pedido_tamano_350" name="PedidoTamano" value="350ml">
+            <label for="pedido_tamano_350">350ml</label>
+            <input type="radio" id="pedido_tamano_500" name="PedidoTamano" value="500ml">
+            <label for="pedido_tamano_500">500ml</label>
+            <input type="radio" id="pedido_tamano_700" name="PedidoTamano" value="700ml" checked>
+            <label for="pedido_tamano_700">700ml</label>
+            <input type="radio" id="pedido_tamano_1000" name="PedidoTamano" value="1000ml">
+            <label for="pedido_tamano_1000">1000ml</label>
+        </p>
+
+        <p>
+            <label for="pedido_marca">13: Marca:</label>
+            <input type="text" id="pedido_marca" name="PedidoMarca" placeholder="Seleccione o escriba una marca"
+                size="20" autocomplete="off" list="lista_marcas">
+            <datalist id="lista_marcas">
+                <option value="Gato Negro">Gato Negro</option>
+                <option value="Concha y Toro">Concha y Toro</option>
+                <option value="Santa Helena">Santa Helena</option>
+                <option value="Casillero del Diablo">Casillero del Diablo</option>
+            </datalist>
+        </p>
+
+        <p>
+            <label for="boton_enviar"></label>
+            <input type="submit" id="boton_enviar" value="Enviar formulario" formtarget="_blank">
+        </p>
+        <p>
+            <label for="boton_reiniciar"></label>
+            <input type="reset" id="boton_reiniciar" value="Reiniciar Formulario">
+        </p>
+
+    </form>
+
+
+
+</body>
+
+</html>
