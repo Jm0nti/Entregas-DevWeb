@@ -18,7 +18,6 @@
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <!-- Debe incluir un enlace a una segunda página web que muestre un about -->
             <li><a href="about.html">Acerca de</a></li>
         </ul>
     </nav>
@@ -30,25 +29,29 @@
         <p>
             <label for="cliente_nombre">1. Nombre:</label>
             <input type="text" id="cliente_nombre" name="ClienteNombre" placeholder="Escriba acá su nombre completo" 
-                size="25" required="on" autocomplete="on" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}">
+                size="27" required="on" autocomplete="on" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,}"
+                title="El nombre debe contener solo letras y espacios, con un mínimo de 3 caracteres.">
         </p>
 
         <p>
             <label for="cliente_cedula">2. Cédula:</label>
             <input type="number" id="cliente_cedula" name="ClienteCedula" placeholder="Escriba acá su cédula"
-                required="on" autocomplete="on" pattern="\d{8,11}">
+                required="on" autocomplete="on"
+                title="La cédula debe tener entre 8 y 11 dígitos numéricos.">
         </p>
 
         <p>
             <label for="cliente_telefono">3. Teléfono:</label>
             <input type="number" id="cliente_telefono" name="ClienteTelefono"
-                placeholder="Ej. 3001234567" size="15" required="on" autocomplete="on" pattern="\d{10}">
+                placeholder="Ej. 3001234567" size="15" required="on" autocomplete="on"
+                title="El teléfono debe tener exactamente 10 dígitos numéricos. Ej: 3001234567">
         </p>
 
         <p>
             <label for="cliente_email">4. Email:</label>
             <input type="email" id="cliente_email" name="ClienteEmail"
-                placeholder="Ej. nombre@correo.com" size="25" required="on" autocomplete="on">
+                placeholder="Ej. nombre.apellido@universidad.edu.co" size="32" required="on" autocomplete="on"
+                title="Ingrese un correo válido. Ej: nombre.apellido@universidad.edu.co">
         </p>
 
         <p>
@@ -60,13 +63,16 @@
         <p>
             <label for="cliente_edad">6. Edad:</label>
             <input type="number" id="cliente_edad" name="ClienteEdad" placeholder="Ej. 25" min="18" max="99"
-                size="7" required="on" autocomplete="on">
+                size="7" required="on" autocomplete="on"
+                title="La edad debe ser un número entero entre 18 y 99.">
         </p>
 
         <p>
             <label for="cliente_direccion">7. Dirección:</label>
             <textarea id="cliente_direccion" name="ClienteDireccion" placeholder="Ej. Calle 50F #21-99" 
-            cols="25" rows="2" required="on" autocomplete="on"></textarea>
+            cols="25" rows="2" required="on" autocomplete="on"
+            title="La dirección debe tener 15 y 80 caracteres. Ej: Calle 50F #21-99"
+            minlength="15" maxlength="80"></textarea>
         </p>
 
         <h3>PEDIDO</h3>
@@ -74,48 +80,62 @@
         <p>
             <label for="pedido_nombre">8. Nombre:</label>
             <input type="text" id="pedido_nombre" name="PedidoNombre"
-                placeholder="Ej. Vino, Aguardiente..." size="20" required="on" autocomplete="on">
+                placeholder="Ej. Vino, Cerveza, Aguardiente..." size="27" required="on" autocomplete="on"
+                minlength="4" pattern=".{4,}"
+                title="El nombre del producto debe tener al menos 4 caracteres.">
         </p>
 
         <p>
             <label for="pedido_id">9. ID:</label>
-            <input type="number" id="pedido_id" name="PedidoId" placeholder="Ej. 17" 
-            min="1" max="100" required="on" autocomplete="on">
+            <input type="number" id="pedido_id" name="PedidoId" placeholder="Ej. 17"
+                min="1" max="100" required="on" autocomplete="on"
+                title="El ID debe ser un número entero entre 1 y 100.">
         </p>
 
         <p>
             <label for="pedido_volumen_alcohol">10. Volumen de Alcohol:</label>
             <input type="number" id="pedido_volumen_alcohol" name="PedidoVolumenAlcohol" placeholder="Ej. 29"
-                min="0" max="100" size="5" required="on" autocomplete="on">
+                min="0" max="100" size="5" required="on" autocomplete="on"
+                title="El volumen de alcohol debe ser un número entero entre 0 y 100.">
         </p>
 
         <p>
             <label for="pedido_precio">11. Precio:</label>
             <input type="number" id="pedido_precio" name="PedidoPrecio" placeholder="Ej. 45000"
-                min="1000" max="500000" required="on" autocomplete="on">
+                min="1000" max="500000" required="on" autocomplete="on"
+                title="El precio debe ser un número entre 1.000 y 500.000.">
         </p>
 
         <p>
             <label>12. Tamaño:</label><br>
-            <input type="radio" id="pedido_tamano_350" name="PedidoTamano" value="350ml">
+            <input type="radio" id="pedido_tamano_350" name="PedidoTamano" value="350ml" required
+                title="Debe seleccionar un tamaño: 350ml, 500ml, 700ml o 1000ml.">
             <label for="pedido_tamano_350">350ml</label>
-            <input type="radio" id="pedido_tamano_500" name="PedidoTamano" value="500ml">
+            <input type="radio" id="pedido_tamano_500" name="PedidoTamano" value="500ml"
+                title="Debe seleccionar un tamaño: 350ml, 500ml, 700ml o 1000ml.">
             <label for="pedido_tamano_500">500ml</label>
-            <input type="radio" id="pedido_tamano_700" name="PedidoTamano" value="700ml">
+            <input type="radio" id="pedido_tamano_700" name="PedidoTamano" value="700ml"
+                title="Debe seleccionar un tamaño: 350ml, 500ml, 700ml o 1000ml.">
             <label for="pedido_tamano_700">700ml</label>
-            <input type="radio" id="pedido_tamano_1000" name="PedidoTamano" value="1000ml">
+            <input type="radio" id="pedido_tamano_1000" name="PedidoTamano" value="1000ml"
+                title="Debe seleccionar un tamaño: 350ml, 500ml, 700ml o 1000ml.">
             <label for="pedido_tamano_1000">1000ml</label>
         </p>
 
         <p>
             <label for="pedido_marca">13. Marca:</label>
             <input type="text" id="pedido_marca" name="PedidoMarca" placeholder="Seleccione o escriba una marca"
-                size="27" autocomplete="off" list="lista_marcas">
-            <datalist id="lista_marcas">
+                size="27" required autocomplete="off" list="lista_marcas"
+                maxlength="30" pattern=".{1,30}"
+                title="La marca puede tener hasta 30 caracteres.">
+                <datalist id="lista_marcas">
+                <option value="Pilsen">Pilsen</option>
+                <option value="Smirnoff">Smirnoff</option>
+                <option value="Don Julio">Don Julio</option>
                 <option value="Gato Negro">Gato Negro</option>
-                <option value="Concha y Toro">Concha y Toro</option>
-                <option value="Santa Helena">Santa Helena</option>
-                <option value="Casillero del Diablo">Casillero del Diablo</option>
+                <option value="Buchanan's">Buchanan's</option>
+                <option value="Club Colombia">Club Colombia</option>
+                <option value="Johnnie Walker">Johnnie Walker</option>
             </datalist>
         </p>
 
