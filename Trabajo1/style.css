@@ -1,0 +1,468 @@
+/* CSS Licorera La Cancha (basado en tutorial de FalconMasters) */
+
+:root {
+	--fondo-1: #0f1a12;
+	--fondo-2: #1f3421;
+	--panel: #f7f1e4;
+	--panel-borde: rgba(182, 143, 59, 0.35);
+	--texto: #1f2937;
+	--muted: #6b7280;
+	--primario: #9b6b1f;
+	--primario-oscuro: #6f4a12;
+	--ok: #1f8f4d;
+	--ok-fondo: rgba(31, 143, 77, 0.08);
+	--error: #c13c2c;
+	--error-fondo: rgba(193, 60, 44, 0.08);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	padding: 2rem 1rem 3rem;
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--texto);
+	background:
+		linear-gradient(135deg, var(--fondo-1), var(--fondo-2));
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+	background-size: 44px 44px;
+	opacity: 0.18;
+}
+
+h2,
+h3,
+nav,
+form {
+	position: relative;
+	z-index: 1;
+}
+
+h2 {
+	margin: 0 0 1rem;
+	text-align: center;
+	color: #f8e7b6;
+	letter-spacing: 0.12em;
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.28);
+}
+
+body:not(.about-page) > h2 {
+	font-size: clamp(1.5rem, 4vw, 3.4rem);
+}
+
+nav {
+	max-width: 1120px;
+	margin: 0 auto 1.25rem;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 0.75rem;
+	padding: 0;
+	margin: 0;
+	flex-wrap: wrap;
+}
+
+nav a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.7rem 1rem;
+	border: 1px solid rgba(248, 231, 182, 0.22);
+	border-radius: 999px;
+	color: #f9edd1;
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.14);
+	backdrop-filter: blur(8px);
+}
+
+nav a:hover {
+	background: rgba(155, 107, 31, 0.34);
+	border-color: rgba(248, 231, 182, 0.45);
+}
+
+form {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 1.5rem;
+	border: 1px solid var(--panel-borde);
+	border-radius: 28px;
+	background: var(--panel);
+	box-shadow: var(--sombra);
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem 1.25rem;
+}
+
+form h3,
+form > p:last-child,
+form > .grupo-tamano {
+	grid-column: 1 / -1;
+}
+
+form h3 {
+	margin: 0.25rem 0 0;
+	padding-top: 0.35rem;
+	color: var(--primario-oscuro);
+	border-top: 1px solid rgba(111, 74, 18, 0.15);
+	letter-spacing: 0.08em;
+}
+
+form > p {
+	margin: 0;
+	padding: 0.2rem 0 1.2rem;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	position: relative;
+}
+
+form > p:not(.grupo-tamano) > label {
+	font-weight: 700;
+	color: #2f3a2f;
+}
+
+form > p > input,
+form > p > textarea {
+	width: 100%;
+	padding: 0.85rem 1rem;
+	border: 1px solid #c9c1b1;
+	border-radius: 14px;
+	background: #fff;
+	color: var(--texto);
+	font: inherit;
+	outline: none;
+	transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+form > p > textarea {
+	resize: vertical;
+	min-height: 86px;
+}
+
+form > p > input:focus,
+form > p > textarea:focus {
+	border-color: var(--primario);
+}
+
+form > p.campo-ok > input,
+form > p.campo-ok > textarea {
+	border-color: var(--ok);
+}
+
+form > p.campo-error > input,
+form > p.campo-error > textarea {
+	border-color: var(--error);
+}
+
+form > p.campo-ok {
+	border-color: transparent;
+}
+
+form > p.campo-error {
+	border-color: transparent;
+}
+
+form > p.campo-ok > input,
+form > p.campo-ok > textarea,
+form > p.campo-error > input,
+form > p.campo-error > textarea {
+	padding-right: 3rem;
+}
+
+form > p.campo-ok::before,
+form > p.campo-error::before {
+	position: absolute;
+	right: 1rem;
+	top: 2.15rem;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 999px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	color: #fff;
+}
+
+form > p.campo-ok::before {
+	content: '✓';
+	background: var(--ok);
+}
+
+form > p.campo-error::before {
+	content: '✕';
+	background: var(--error);
+}
+
+form > p.campo-ok::after,
+form > p.campo-error::after {
+	content: attr(data-error);
+	position: static;
+	left: 1rem;
+	right: 1rem;
+	font-size: 0.84rem;
+	line-height: 1.3;
+	padding-right: 3rem;
+}
+
+form > p.campo-ok::after {
+	color: var(--ok);
+}
+
+form > p.campo-error::after {
+	color: var(--error);
+}
+
+form > p.grupo-tamano {
+	padding-bottom: 0.8rem;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr);
+	gap: 0.7rem 1rem;
+	align-items: start;
+	grid-column: 1 / -1;
+}
+
+form > p.grupo-tamano > label:first-child {
+	grid-column: 1 / -1;
+	display: block;
+	margin-bottom: 0;
+}
+
+form > p.grupo-tamano > br {
+	display: none;
+}
+
+form > p.grupo-tamano > input[type="radio"] {
+	width: auto;
+	accent-color: var(--primario);
+	margin: 0;
+	justify-self: end;
+	align-self: center;
+}
+
+form > p.grupo-tamano > label[for^="pedido_tamano_"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 0;
+	font-weight: 600;
+	grid-column: auto;
+}
+
+form > p.grupo-tamano > input[type="radio"] + label[for^="pedido_tamano_"] {
+	grid-column: span 1;
+}
+
+form > p.grupo-tamano.campo-ok,
+form > p.grupo-tamano.campo-error {
+	padding-bottom: 0.8rem;
+}
+
+form > p:nth-of-type(7),
+form > p:nth-of-type(13) {
+	grid-column: 1 / -1;
+	justify-self: center;
+	width: min(100%, 620px);
+}
+
+form > p:nth-of-type(7) textarea,
+form > p:nth-of-type(13) input {
+	width: 100%;
+}
+
+form > p.grupo-tamano > label:first-child {
+	font-weight: 700;
+}
+
+form > p:last-child {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.9rem;
+	justify-content: stretch;
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+button {
+	appearance: none;
+	border: 0;
+	border-radius: 999px;
+	padding: 0.9rem 1.35rem;
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+button[type="submit"] {
+	color: #fff;
+	background: #d0a14d;
+}
+
+button[type="reset"] {
+	color: var(--primario-oscuro);
+	background: rgba(155, 107, 31, 0.1);
+}
+
+form > p:last-child button {
+	width: 100%;
+}
+
+body.about-page {
+	background:
+		linear-gradient(135deg, var(--fondo-1), var(--fondo-2));
+	color: #f7ebc7;
+}
+
+body.about-page::before {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+	background-size: 44px 44px;
+	opacity: 0.18;
+}
+
+body.about-page h1 {
+	margin: 0;
+	text-align: center;
+	font-size: clamp(2rem, 4vw, 3.5rem);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #f8e7b6;
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.28);
+}
+
+body.about-page h1 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body.about-page h1 a:hover {
+	color: inherit;
+}
+
+body.about-page .about-layout {
+	width: min(1120px, calc(100% - 2rem));
+	margin: 0 auto;
+	padding-bottom: 1rem;
+}
+
+body.about-page .about-hero {
+	padding: 1rem 0 1.4rem;
+	text-align: center;
+}
+
+body.about-page .about-slogan {
+	margin: 0.65rem auto 0;
+	font-size: clamp(1rem, 2.1vw, 1.25rem);
+	color: #f9edd1;
+	font-style: italic;
+}
+
+body.about-page .about-panel {
+	background: rgba(247, 241, 228, 0.98);
+	border: 1px solid var(--panel-borde);
+	border-radius: 26px;
+	padding: 1.2rem;
+	box-shadow: var(--sombra);
+	color: var(--texto);
+}
+
+body.about-page .about-intro {
+	display: grid;
+	grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+	gap: 1.2rem;
+	align-items: center;
+	margin-bottom: 1.2rem;
+}
+
+body.about-page .about-media {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 24px;
+	overflow: hidden;
+	border: 1px solid rgba(182, 143, 59, 0.22);
+}
+
+body.about-page .about-media img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 24px;
+}
+
+body.about-page .about-copy h2,
+body.about-page .about-card h2,
+body.about-page .about-closing h2 {
+	margin-top: 0;
+	text-align: left;
+	color: var(--primario-oscuro);
+	text-shadow: none;
+	letter-spacing: 0.06em;
+}
+
+body.about-page .about-copy p,
+body.about-page .about-card p,
+body.about-page .about-closing p {
+	margin: 0 0 0.9rem;
+	line-height: 1.65;
+	color: #314033;
+}
+
+body.about-page .about-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+body.about-page .about-card ul {
+	margin: 0;
+	padding-left: 1.2rem;
+	color: #314033;
+	line-height: 1.7;
+}
+
+body.about-page .about-card li + li {
+	margin-top: 0.35rem;
+}
+
+body.about-page .about-closing {
+	margin-bottom: 1rem;
+	text-align: center;
+	border-left: 4px solid var(--primario);
+	border-right: 4px solid rgba(31, 143, 77, 0.55);
+}
+
+body.about-page .about-warning {
+	position: relative;
+	overflow: hidden;
+	padding: 1rem 1.2rem;
+	border-radius: 999px;
+	border: 2px solid rgba(248, 231, 182, 0.4);
+	background: rgba(111, 74, 18, 0.95);
+	color: #fff1d0;
+	text-align: center;
+	font-weight: 800;
+	letter-spacing: 0.03em;
+	box-shadow: var(--sombra);
+}

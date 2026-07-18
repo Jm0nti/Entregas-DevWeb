@@ -8,6 +8,7 @@
     <meta name="author" content="Juan Luis Montiel Villalba, Juan Manuel Rodríguez Sánchez">
     <meta name="description" content="Licorera La Cancha, la mejor excusa para compartir con tus amigos">
     <link rel="icon" type="image/svg+xml" href="https://www.svgrepo.com/show/137442/soccer-field.svg">
+    <link rel="stylesheet" href="style.css">
     <title>Licorera La Cancha</title>
 </head>
 
@@ -22,7 +23,7 @@
         </ul>
     </nav>
 
-    <form id="formulario_n01" name="formularioN01" action="validacion_form.js">
+    <form id="formulario_n01" name="formularioN01" action="validacion_form.js" novalidate>
 
         <h3>CLIENTE</h3>
 
@@ -106,7 +107,7 @@
                 title="El precio debe ser un número entre 1.000 y 500.000.">
         </p>
 
-        <p>
+        <p class="grupo-tamano">
             <label>12. Tamaño:</label><br>
             <input type="radio" id="pedido_tamano_350" name="PedidoTamano" value="350ml" required
                 title="Debe seleccionar un tamaño: 350ml, 500ml, 700ml o 1000ml.">
