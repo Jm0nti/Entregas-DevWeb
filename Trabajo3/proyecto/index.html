@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peliculas Cancheras - Catálogo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="author" content="Juan Luis Montiel Villalba, Juan Manuel Rodríguez Sánchez">
+    <meta name="description" content="Peliculas Cancheras para todos los cinefilos.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header id="navbar"></header>
+
+    <main class="container">
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <section id="catalog" class="catalog" aria-label="Catálogo de películas"></section>
+
+        <nav id="pagination" class="pagination" aria-label="Paginación"></nav>
+    </main>
+
+    <div id="modal" class="modal" role="dialog" aria-hidden="true"></div>
+
+    <footer class="footer">
+        <p>Datos suministrados por <a href="https://devsapihub.com/docs/api-movies" target="_blank" rel="noopener">Devs
+                API Hub</a></p>
+        <p>Desarrollado por: Juan Manuel Rodriguez Sanchez y Juan Luis Montiel Villalba</a></p>
+    </footer>
+
+    <!-- Módulos JS -->
+    <script src="js/services/api.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/card.js"></script>
+    <script src="js/components/modal.js"></script>
+    <script src="js/views/home.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
