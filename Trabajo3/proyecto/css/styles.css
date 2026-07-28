@@ -155,18 +155,18 @@ a {
     min-height: 24px;
 }
 
-/*  Catálogo grid 5x4 */
+/*  Catálogo grid 5x2 */
 .catalog {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
 }
 
 /*  Card  */
 .card {
     position: relative;
     background: var(--bg-elev);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -175,7 +175,7 @@ a {
 }
 
 .card:hover {
-    transform: translateY(-6px) scale(1.03);
+    transform: translateY(-4px) scale(1.015);
     box-shadow: 0 12px 32px rgba(229, 9, 20, 0.35);
     z-index: 2;
 }
@@ -190,13 +190,13 @@ a {
 
 .card-year-badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 8px;
+    left: 8px;
     background: rgba(0, 0, 0, 0.75);
     color: var(--text);
-    padding: 4px 10px;
+    padding: 3px 8px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -206,7 +206,7 @@ a {
 
 .card-year-badge .stars {
     color: var(--star);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: -1px;
 }
 
@@ -217,19 +217,19 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 16px;
+    padding: 12px;
     opacity: 1;
 }
 
 .card-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     margin-bottom: 6px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .card-desc {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -365,23 +365,5 @@ a {
 
     .nav-input {
         min-width: 160px;
-    }
-}
-
-@media (max-width: 600px) {
-    .catalog {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .nav-controls {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .nav-input,
-    .nav-select {
-        flex: 1;
-        min-width: 0;
     }
 }

@@ -3,7 +3,7 @@ const HomeView = {
         allMovies: [],
         filtered: [],
         currentPage: 1,
-        pageSize: 20,
+        pageSize: 10,
         searchQuery: '',
         selectedGenre: ''
     },
